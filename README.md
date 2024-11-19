@@ -1,1 +1,1 @@
-# bhl-bot
+<img src="cover.jpg">
