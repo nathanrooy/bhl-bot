@@ -18,7 +18,11 @@ def _post(client, post):
     text_builder.tag('#art', 'art')
 
     # assemble and post
-    client.send_image(text=text_builder, image=post['img_buf'].getvalue(), image_alt=post['img_desc'])
+    try:
+        client.send_image(text=text_builder, image=post['img_buf'].getvalue(), image_alt=post['img_desc'])
+    except Exception as e:
+        print("> Post description:", post['img_desc'])
+        print("> Error posting to bsky:" e)
 
 
 def _purge(client):
